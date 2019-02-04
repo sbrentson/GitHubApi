@@ -1,0 +1,266 @@
+﻿@model GvtcGh.Web.Models.GitHubUser
+
+@{
+    ViewBag.Title = "Details";
+}
+<h2>Details for Git Hub User: @Model.Login</h2>
+<p>
+    @Html.ActionLink("Back", "Index")
+</p>
+<hr />
+@if (!String.IsNullOrEmpty(Model.Error))
+{
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Error):&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Error)
+        </dd>
+    </dl>
+}
+else
+{
+    <div>
+        <img src="@Model.UserDetails.AvatarUrl" width="115" height="115" />
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.AvatarUrl):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.AvatarUrl)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.Bio):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.Bio)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.Blog):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.Blog)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.Company):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.Company)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.CreatedAt):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.CreatedAt)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.DiskUsage):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.DiskUsage)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.Email):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.Followers):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.Followers)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.Following):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.Following)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.Hireable):&nbsp;
+            </dt>
+
+            <dd>
+                @if (Model.UserDetails.Hireable == null)
+                {
+                    @Html.Label(string.Empty)
+                }
+                else
+                {
+                    @Html.LabelFor(model => model.UserDetails.Hireable.ToString())
+                }
+
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.HtmlUrl):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.HtmlUrl)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.Id):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.Id)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.LdapDistinguishedName):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.LdapDistinguishedName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.Location):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.Location)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.Login):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.Login)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.Name):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.NodeId):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.NodeId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.OwnedPrivateRepos):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.OwnedPrivateRepos)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.Permissions):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.Permissions)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.PublicGists):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.PublicGists)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.PublicRepos):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.PublicRepos)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.SiteAdmin):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.Label(Model.UserDetails.SiteAdmin.ToString())               
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.Suspended):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.Label(Model.UserDetails.Suspended.ToString())
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.SuspendedAt):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.SuspendedAt)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.TotalPrivateRepos):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.TotalPrivateRepos)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.Type):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.Type)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.Url):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.Url)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserDetails.UpdatedAt):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserDetails.UpdatedAt)
+            </dd>
+
+        </dl>
+    </div>
+}
+<p>
+    @Html.ActionLink("Back", "Index")
+</p>
