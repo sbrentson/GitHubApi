@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Octokit.Repository>
+
+@{
+    ViewBag.Title = "User Repositories";
+}
+@using (Html.BeginForm("List", "Repositories"))
+{
+<div class="form-horizontal">
+    <h4>GitHub Repositories for @ViewBag.Username</h4>
+    <p>
+        @Html.ActionLink("Back", "Index")
+    </p>
+    <hr />
+    <div class="form-group">
+        <input type="hidden" id="username" value="@ViewBag.Username" />
+        <label class="col-sm-2 control-label" for="Repositories">Repositories:</label>
+        <div class="col-sm-10">
+            @Html.DropDownList("repoSelect", new SelectList(Model, "Id", "Name"), "Select Repository", new { @class = "form-control" })
+        </div>
+    </div>
+    <hr />
+    <div class="form-group">
+        <pre id="jsonContainer" class="col-md-offset-1 col-sm-10"></pre>
+    </div>
+</div>
+}
+@section scripts {
+    <script>
+        var GVTC = GVTC || {};
+
+        (function (GVTC) {
+            GVTC.Respositories = {
+                initialize: function () {
+                    var username = $("#username").val();
+                    $("#repoSelect").on("change", function () {
+                        var item = $(this);
+                        if (item.val().length) {
+                            $("#jsonContainer").html("<h4>Loading...</h4>");
+
+                            var id = item.val();
+                            var url = "/api/repository/" + username + "/" + id;
+
+                            $.ajax({
+                                type: "GET",
+                                dataType: "json",
+                                url: url,
+                                success: function (data) {
+                                    console.log(data);
+                                    $("#jsonContainer").html(JSON.stringify(data, undefined, 4));
+                                },
+                                error: function (jqXHR, status, error) {
+                                    $("#jsonContainer").html(error);
+                                }
+                            });
+                        }
+                    })
+                }
+            }
+        })(GVTC);
+
+        $(function () {
+            GVTC.Respositories.initialize();
+        });
+    </script>
+}
+
+

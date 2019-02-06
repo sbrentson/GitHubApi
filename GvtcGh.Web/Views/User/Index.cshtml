@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "User Repositories";
+}
+@using (Html.BeginForm("Repositories", "User"))
+{
+    <div class="form-horizontal">
+        <h4>Set User</h4>
+        <hr />
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="username">Username:</label>
+            <div class="col-sm-10">
+                <input name="username" id="username" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" value="Get Repositories" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
