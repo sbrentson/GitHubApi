@@ -170,8 +170,8 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\GitHubController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\GHRestController.cs" />
-    <Compile Include="Controllers\RepositoryController.cs" />
+    <Compile Include="Api\GHRestController.cs" />
+    <Compile Include="Api\RepositoryController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
