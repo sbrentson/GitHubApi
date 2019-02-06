@@ -32,7 +32,15 @@ namespace GvtcGh.Web.Controllers
         public async Task<ActionResult> Repositories(string username)
         {
             ViewBag.Username = username;
-            IEnumerable<Repository> model = await _client.Repository.GetAllForUser(username);
+            IEnumerable<Repository> model = new List<Repository>();
+            try
+            {
+                model = await _client.Repository.GetAllForUser(username);
+            }
+            catch (Exception ex)
+            {
+                // ya, we should have some exception handling and feedback here...
+            }
             return View(model);
         }
     }
