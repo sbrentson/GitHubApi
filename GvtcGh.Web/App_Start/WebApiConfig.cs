@@ -1,5 +1,7 @@
-﻿using System.Net.Http.Headers;
+﻿using Octokit;
+using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Xml.Serialization;
 
 namespace GvtcGh.Web
 {
@@ -24,6 +26,7 @@ namespace GvtcGh.Web
 
             config.Formatters.JsonFormatter.SupportedMediaTypes
                 .Add(new MediaTypeHeaderValue("text/html"));
+            
         }
     }
 }

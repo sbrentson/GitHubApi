@@ -23,11 +23,12 @@ namespace GvtcGh.Web.Api
             };
         }
 
+        // /api/repository/{username}
         public async Task<IHttpActionResult> Get(string username)
         {
             try
             {
-                IEnumerable<Repository> repositories = await _client
+               IEnumerable<Repository> repositories = await _client
                     .Repository
                     .GetAllForUser(username);
 
@@ -44,6 +45,7 @@ namespace GvtcGh.Web.Api
             }
         }
 
+        // /api/repository/{username}/{id}
         public async Task<IHttpActionResult> Get(string username, int id)
         {
             try
